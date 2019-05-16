@@ -928,9 +928,7 @@ blockquote {
 
 .grid-3 {
   max-width: 940px;
-  margin-top: 0px;
-  margin-right: 120px;
-  margin-left: 120px;
+  margin: auto;
   padding-top: 20px;
   grid-row-gap: 6px;
   grid-template-areas: ".";
@@ -3225,4 +3223,3 @@ html.w-mod-js *[data-ix="hero-text"] {
     grid-row-end: 8;
   }
 }
-
