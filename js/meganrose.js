@@ -2976,7 +2976,7 @@ Webflow.define('forms', module.exports = function ($, _) {
 
     $forms.each(build);
       if (window.location.href.indexOf("submit") > -1){
-        $('.w-form-done').css('display: block'); 
+      $('.w-form-done').css('display', 'block');
     }
   }
 
