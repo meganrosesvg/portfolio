@@ -1861,6 +1861,10 @@ blockquote {
   border: 1px solid #000;
 }
 
+.paragraph-20 {
+  text-align: center;
+}
+
 html.w-mod-js *[data-ix="tile-1"] {
   opacity: 0;
   -webkit-transform: scale(0.96, 0.96);
