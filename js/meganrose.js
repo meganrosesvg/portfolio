@@ -101,6 +101,7 @@
 /* eslint-disable */
 
 /**
+ * Webflow: Core site library
  */
 
 var Webflow = {};
@@ -148,7 +149,7 @@ Webflow.require = function (name) {
 };
 
 function bindModule(module) {
-
+  // If running in Webflow app, subscribe to design/preview events
   if (Webflow.env()) {
     isFunction(module.design) && $win.on('__wf_design', module.design);
     isFunction(module.preview) && $win.on('__wf_preview', module.preview);
@@ -210,7 +211,7 @@ Webflow.push = function (ready) {
   secondary.push(ready);
 };
 /**
-
+ * Webflow.env - Get the state of the Webflow app
  * @param {string} mode [optional]
  * @return {boolean}
  */
@@ -262,6 +263,7 @@ touch && $doc.on('touchstart mousedown', function (evt) {
   touchTarget = evt.target;
 });
 /**
+ * Webflow.validClick - validate click target against current touch target
  * @param  {HTMLElement} clickTarget  Element being clicked
  * @return {Boolean}  True if click target is valid (always true on non-touch)
  */
@@ -2975,9 +2977,6 @@ Webflow.define('forms', module.exports = function ($, _) {
     }
 
     $forms.each(build);
-      if (window.location.href.indexOf("submit") > -1){
-      $('.w-form-done').css('display', 'block');
-    }
   }
 
   function build(i, el) {
@@ -3034,6 +3033,12 @@ Webflow.define('forms', module.exports = function ($, _) {
         data.evt = evt;
         data.handler(data);
       }
+    }); // handle checked ui for custom checkbox
+
+    var CHECKBOX_CLASS_NAME = '.w-checkbox-input';
+    var CHECKED_CLASS = 'w--checked';
+    $doc.on('change', namespace + ' form input[type="checkbox"]:not(' + CHECKBOX_CLASS_NAME + ')', function (evt) {
+      $(evt.target).siblings(CHECKBOX_CLASS_NAME).toggleClass(CHECKED_CLASS);
     });
   } // Reset data common to all submit handlers
 

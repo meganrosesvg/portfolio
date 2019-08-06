@@ -308,7 +308,6 @@ input[type="reset"] {
 .w-form-done {
   display: none;
   padding: 20px;
-  margin: 40px;
   text-align: center;
   background-color: #dddddd;
 }
